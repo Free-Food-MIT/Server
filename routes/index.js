@@ -1,11 +1,11 @@
 const combineRouters = require('koa-combine-routers')
 
 const food = require('./food')
-const user = require('./user')
+const verify = require('./verify')
 
 const router = combineRouters(
   food,
-  user
+  verify
 )
 
 module.exports = router
