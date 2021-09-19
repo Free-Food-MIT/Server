@@ -14,6 +14,9 @@ const foodEntrySchema = new Schema({
     type: String,
     required: true
   },
+  food: {
+    type: String
+  },
   description: {
     type: String
   },
@@ -24,7 +27,15 @@ const foodEntrySchema = new Schema({
   createdAt: {
     type: Date,
     required: true,
-    default: Date.now
+    default: Date.now,
+    expires: 1000 * 60 * 60 * 6
+  },
+  reporters: [{
+    type: String
+  }],
+  active: {
+    type: Boolean,
+    default: true
   }
 })
 
