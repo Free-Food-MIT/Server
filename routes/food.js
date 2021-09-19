@@ -16,14 +16,16 @@ router.post('/create', bodySchema({
   posterEmail: Joi.string().email().required(),
   location: Joi.string().required(),
   description: Joi.string(),
-  tags: Joi.string().valid('EVENT')
+  tags: Joi.string().valid('EVENT'),
+  food: Joi.string().required()
 }), async (ctx) => {
   const foodEntry = await FoodEntry.create({
     poster: ctx.request.body.poster,
     posterEmail: ctx.request.body.posterEmail,
     location: ctx.request.body.location,
     description: ctx.request.body.description,
-    tags: ctx.request.body.tags
+    tags: ctx.request.body.tags,
+    food: ctx.request.body.food
   })
   ctx.body = foodEntry
 })
